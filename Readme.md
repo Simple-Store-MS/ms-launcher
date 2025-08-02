@@ -1,32 +1,42 @@
-Curso de Microservicios de Fernando
+# Microservices Launcher
 
-### Pasos para crear los Git Submodules
+## Description
 
+Launcher and orchestration layer for the Simple Store microservices architecture.
 
-1. Crear un nuevo repositorio en GitHub
-2. Clonar el repositorio en la máquina local
-3. Añadir el submodule, donde `repository_url` es la url del repositorio y `directory_name` es el nombre de la carpeta donde quieres que se guarde el sub-módulo (no debe de existir en el proyecto)
-```
-git submodule add <repository_url> <directory_name>
-```
-4. Añadir los cambios al repositorio (git add, git commit, git push)
-Ej:
-```
-git add .
-git commit -m "Add submodule"
-git push
-```
-5. Inicializar y actualizar Sub-módulos, cuando alguien clona el repositorio por primera vez, debe de ejecutar el siguiente comando para inicializar y actualizar los sub-módulos
-```
-git submodule update --init --recursive
-```
-6. Para actualizar las referencias de los sub-módulos
-```
-git submodule update --remote
-```
+### Steps to Create Git Submodules
 
+1. Create a new repository on GitHub
+2. Clone the repository to your local machine
+3. Add the submodules
 
-## Importante
-Si se trabaja en el repositorio que tiene los sub-módulos, **primero actualizar y hacer push** en el sub-módulo y **después** en el repositorio principal.
+   ```bash
+   git submodule add https://github.com/Simple-Store-MS/client-gateway.git client-gateway
+   ```
 
-Si se hace al revés, se perderán las referencias de los sub-módulos en el repositorio principal y tendremos que resolver conflictos.
+4. Add the changes to the repository (`git add`, `git commit`, `git push`)  
+   Example:
+
+   ```bash
+   git add .
+   git commit -m "Add submodule"
+   git push
+   ```
+
+5. Initialize and update submodules. When someone clones the repository for the first time, they should run the following command to initialize and update the submodules:
+
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+6. To update the submodule references:
+
+   ```bash
+   git submodule update --remote
+   ```
+
+## Important
+
+If you're working in the repository that contains the submodules, **always update and push changes to the submodule first**, and **only then** push to the main repository.
+
+Doing it in the reverse order may break the submodule references in the main repository and lead to conflicts.
