@@ -11,7 +11,7 @@ Launcher and orchestration layer for the Simple Store microservices architecture
 3. Add the submodules
 
    ```bash
-   git submodule add https://github.com/Simple-Store-MS/client-gateway.git client-gateway
+   git submodule add <repository_url> <directory_name>
    ```
 
 4. Add the changes to the repository (`git add`, `git commit`, `git push`)  
