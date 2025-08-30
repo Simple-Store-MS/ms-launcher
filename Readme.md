@@ -4,6 +4,22 @@
 
 Launcher and orchestration layer for the Simple Store microservices architecture.
 
+### Steps to Develop
+
+1. Clone the ms-launcher repository
+2. Create a .env file based on .env.template
+3. Run the following command to rebuild the submodules:
+
+```bash
+git submodule update --init --recursive
+```
+
+4. Run the following command to start all services:
+
+```bash
+docker compose up --build
+```
+
 ### Steps to Create Git Submodules
 
 1. Create a new repository on GitHub
