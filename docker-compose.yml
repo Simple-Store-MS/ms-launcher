@@ -50,10 +50,12 @@ services:
     volumes:
       - ./payments-ms/src:/usr/src/app/src
     command: npm run start:dev
+    ports:
+      - ${PAYMENTS_MS_PORT}:3000
     environment:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
-      - STRIPE_CANCEL_URL=http://127.0.0.1:3000/cancel
+      - STRIPE_CANCEL_URL=http://127.0.0.1:3000/api/payments/cancel
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
-      - STRIPE_SUCCESS_URL=http://127.0.0.1:3000/success
+      - STRIPE_SUCCESS_URL=http://127.0.0.1:3000/api/payments/success
       - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
