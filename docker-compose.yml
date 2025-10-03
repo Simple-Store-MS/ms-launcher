@@ -44,3 +44,16 @@ services:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
       - DATABASE_URL=postgres://postgres:postgres@orders-db:5432/orders_db
+
+  payments-ms:
+    build: ./payments-ms
+    volumes:
+      - ./payments-ms/src:/usr/src/app/src
+    command: npm run start:dev
+    environment:
+      - PORT=3000
+      - NATS_SERVERS=nats://nats-server:4222
+      - STRIPE_CANCEL_URL=http://127.0.0.1:3000/cancel
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_SUCCESS_URL=http://127.0.0.1:3000/success
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
