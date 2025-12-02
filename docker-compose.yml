@@ -5,6 +5,8 @@ services:
   orders-db:
     image: postgres:17.5-alpine3.22
     restart: always
+    ports: 
+      - "5432:5432"
     volumes:
       - ./orders-ms/pgdata:/var/lib/postgresql/data
     environment:
